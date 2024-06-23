@@ -15,12 +15,14 @@
 	</header>
 	<main>
 		<section>
+			<?php echo form_open('task/insert'); ?>
 			<div class="my-3 container-sm d-flex justify-content-center align-items-center gap-3">
-				<textarea class="p-2" style="resize: none; height: 125px; flex: 1; max-width: 500px;" maxlength="200" placeholder="Até 200 caracteres"></textarea>
-				<button type="button" class="btn btn-success">
+				<textarea name="task_description" class="p-2" style="resize: none; height: 125px; flex: 1; max-width: 500px;" maxlength="200" placeholder="Até 200 caracteres" required></textarea>
+				<button type="submit" class="btn btn-success">
 					<span class="fs-5">Criar tarefa</span>
 				</button>
 			</div>
+			</form>
 		</section>
 		<section>
 			<div class="mb-3 container-sm" style="border: 1px solid black; border-radius: 6px;">

@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Task extends CI_Model
+class TaskModel extends CI_Model
 {
 
 	public function __construct()
@@ -11,33 +11,33 @@ class Task extends CI_Model
 	}
 
 	// Create
-	public function create_task($data)
+	public function insert($data)
 	{
 		return $this->db->insert('tasks', $data);
 	}
 
 	// Read
-	public function get_task($id)
+	public function findById($id)
 	{
 		$query = $this->db->get_where('tasks', array('task_id' => $id));
 		return $query->row();
 	}
 
-	public function get_all_tasks()
+	public function findAll()
 	{
 		$query = $this->db->get('tasks');
 		return $query->result();
 	}
 
 	// Update
-	public function update_task($id, $data)
+	public function updateTask($id, $data)
 	{
 		$this->db->where('task_id', $id);
 		return $this->db->update('tasks', $data);
 	}
 
 	// Delete
-	public function delete_task($id)
+	public function delete($id)
 	{
 		$this->db->where('task_id', $id);
 		return $this->db->delete('tasks');
