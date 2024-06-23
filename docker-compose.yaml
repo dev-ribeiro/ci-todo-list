@@ -4,10 +4,14 @@ services:
 
   db:
     image: mariadb
+    container_name: todo_list_db
     environment:
       MARIADB_ROOT_PASSWORD: root
+    ports:
+     - 3306:3306
 
   adminer:
     image: adminer
+    container_name: todo_list_db_admin
     ports:
       - 8080:8080
