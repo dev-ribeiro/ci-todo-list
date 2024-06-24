@@ -3,7 +3,7 @@ class Task extends CI_Controller
 {
 	public function index()
 	{
-		echo "Hello";
+		redirect(base_url());
 	}
 
 	public function insert()

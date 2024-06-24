@@ -10,13 +10,11 @@ class TaskModel extends CI_Model
 		$this->load->database();
 	}
 
-	// Create
 	public function insert($data)
 	{
 		return $this->db->insert('tasks', $data);
 	}
 
-	// Read
 	public function findById($id)
 	{
 		$query = $this->db->get_where('tasks', array('task_id' => $id));
@@ -29,17 +27,20 @@ class TaskModel extends CI_Model
 		return $query->result();
 	}
 
-	// Update
 	public function updateTask($id, $data)
 	{
 		$this->db->where('task_id', $id);
 		return $this->db->update('tasks', $data);
 	}
 
-	// Delete
 	public function delete($id)
 	{
 		$this->db->where('task_id', $id);
 		return $this->db->delete('tasks');
+	}
+
+	public function countAll()
+	{
+		return $this->db->count_all('tasks');
 	}
 }

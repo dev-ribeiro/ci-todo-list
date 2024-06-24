@@ -37,12 +37,45 @@
 						</tr>
 					</thead>
 					<tbody>
+						<?php if ($isEmpty == TRUE) : ?>
+							<tr>
+								<td colspan="5">
+									<span class="fs-6">Não há dados cadastrados</span>
+								</td>
+							</tr>
+						<?php endif; ?>
+
+						<?php if ($isEmpty == FALSE) : ?>
+							<?php foreach ($data as $item) : ?>
+								<tr>
+									<td> <?php echo $item->task_id ?> </td>
+									<td> <?php echo $item->task_date ?> </td>
+									<td>
+										<div style="max-width: 300px; overflow: hidden;">
+											<span>
+												<?php echo $item->task_description ?>
+											</span>
+										</div>
+									</td>
+									<td> <?php echo $item->task_is_finished == TRUE ? "✅" : "❌" ?> </td>
+									<td>
+										<div class="d-flex">
+											<button>Editar</button>
+											<button>Finalizar</button>
+											<button>Deletar</button>
+										</div>
+									</td>
+								</tr>
+							<?php endforeach; ?>
+						<?php endif; ?>
+					</tbody>
+					<tfoot>
 						<tr>
 							<td colspan="5">
-								<span class="fs-6">Não há dados cadastrados</span>
+								<span>Foram encontrados <?php echo $numberOfElements ?> registro(s)</span>
 							</td>
 						</tr>
-					</tbody>
+					</tfoot>
 				</table>
 			</div>
 		</section>
